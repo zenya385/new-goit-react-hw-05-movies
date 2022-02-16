@@ -1,0 +1,13 @@
+.movie-detail {
+  display: flex;
+  padding: 10px;
+}
+.movie-detail-info {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.movie-detail-additional {
+  display: flex;
+  flex-direction: column;
+}
