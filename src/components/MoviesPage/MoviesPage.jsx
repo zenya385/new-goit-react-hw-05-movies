@@ -17,9 +17,8 @@ export default function MoviesPage() {
   const { query } = search;
 
   const setSearch = input => {
-    history.push({ pathname: '/movies', search: '?query=' + input }); // {pathname: ""/gallery, search: "?query=cat", hash: "#eruyiu", state: undefined}
+    history.push({ pathname: '/movies', search: '?query=' + input });
   };
-
 
   useEffect(() => {
     query &&
@@ -29,8 +28,6 @@ export default function MoviesPage() {
     setError('');
   }, [query]);
 
-  console.log(search);
-
   return (
     <>
       <Form setSearch={setSearch} />
@@ -39,7 +36,14 @@ export default function MoviesPage() {
           {movieSearch &&
             movieSearch.map(movie => (
               <li key={movie.id} style={{ margin: '10px', fontSize: '15px' }}>
-                <Link to={`movies/${movie.id}`}>{movie.original_title}</Link>
+                <Link
+                  to={{
+                    pathname: `movies/${movie.id}`,
+                    state: { from: location },
+                  }}
+                >
+                  {movie.original_title}
+                </Link>
               </li>
             ))}
         </ul>
