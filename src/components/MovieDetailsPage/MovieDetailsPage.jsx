@@ -2,8 +2,6 @@ import { lazy, Suspense, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link, Route } from 'react-router-dom';
 import { useHistory, useLocation } from 'react-router-dom';
-// import Cast from 'views/Cast';
-// import Reviews from 'views/Reviews';
 import * as API from '../../services/API';
 import s from './MovieDetailsPage.module.css';
 const Cast = lazy(() => import('../../views/Cast'));
@@ -17,8 +15,8 @@ const MovieDetailsPage = () => {
   const [movieDetail, setMovieDetail] = useState([]);
 
   useEffect(() => {
-    movieDetail && API.getSearchMovies(movieId).then(setMovieDetail);
-  }, [movieDetail, movieId]);
+    movieDetail && API.getMovieDetails(movieId).then(setMovieDetail);
+  }, []);
 
   const handleGoBack = () => {
     history.push(location.state.from);

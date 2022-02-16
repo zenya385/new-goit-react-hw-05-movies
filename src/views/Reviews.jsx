@@ -9,7 +9,6 @@ export default function Reviews() {
   useEffect(() => {
     API.getMovieReviews(movieId).then(setReviesList);
   }, [movieId]);
-  // console.log(reviesList.results.length)
   return (
     <ul>
       {reviesList.results && reviesList.results.length === 0 ? (

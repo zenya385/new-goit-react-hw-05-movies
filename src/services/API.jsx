@@ -5,7 +5,7 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
 const getTrendingMovies = () => {
   axios.defaults.params = {
-    api_key: 'f02791c07431f6e71112b21384bb0659',
+    api_key: 'fab0cbb87abcbce926512aacf2cf85c2',
   };
   return axios
     .get('/trending/movie/day')
@@ -17,7 +17,7 @@ const getTrendingMovies = () => {
 
 const getSearchMovies = (query, page = 1) => {
   axios.defaults.params = {
-    api_key: 'f02791c07431f6e71112b21384bb0659',
+    api_key: 'fab0cbb87abcbce926512aacf2cf85c2',
     query,
     page,
   };
@@ -26,9 +26,8 @@ const getSearchMovies = (query, page = 1) => {
     .get(`/search/movie`)
     .then(({ data }) => {
       if (!data.results.length) {
-        throw new Error('Are you 18 already?');
+        throw new Error('=(');
       }
-
       return data.results;
     })
     .catch(err => {
@@ -37,6 +36,9 @@ const getSearchMovies = (query, page = 1) => {
 };
 
 const getMovieDetails = movie_id => {
+  axios.defaults.params = {
+    api_key: 'fab0cbb87abcbce926512aacf2cf85c2',
+  };
   return axios
     .get(`/movie/${movie_id}`)
     .then(({ data }) => data)
@@ -47,7 +49,7 @@ const getMovieDetails = movie_id => {
 
 const getMovieReviews = (movie_id, page = 1) => {
   axios.defaults.params = {
-    api_key: 'f02791c07431f6e71112b21384bb0659',
+    api_key: 'fab0cbb87abcbce926512aacf2cf85c2',
     page,
   };
   return axios

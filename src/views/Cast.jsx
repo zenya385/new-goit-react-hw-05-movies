@@ -9,7 +9,7 @@ export default function Cast() {
   useEffect(() => {
     API.getMovieCast(movieId).then(setCastList);
   }, [movieId]);
-  // console.log(castList)
+
   return (
     <ul>
       {castList?.map(cast => (
