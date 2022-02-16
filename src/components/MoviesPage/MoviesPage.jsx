@@ -17,8 +17,9 @@ export default function MoviesPage() {
   const { query } = search;
 
   const setSearch = input => {
-    history.push({ pathname: '/movies', search: '?query=' + input });
+    history.push({ pathname: '/movies', search: '?query=' + input }); // {pathname: ""/gallery, search: "?query=cat", hash: "#eruyiu", state: undefined}
   };
+
 
   useEffect(() => {
     query &&
@@ -27,6 +28,8 @@ export default function MoviesPage() {
         .catch(error => setError(error.message));
     setError('');
   }, [query]);
+
+  console.log(search);
 
   return (
     <>

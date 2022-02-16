@@ -4,10 +4,10 @@ import s from './AppNav.module.css';
 const AppNav = () => {
   return (
     <header className={s.header}>
-      <NavLink exact to="/" className={s.link}>
+      <NavLink exact to="/" className={s.link} activeClassName={s.active}>
         Home
       </NavLink>
-      <NavLink to="/movis" className={s.link}>
+      <NavLink to="/movies" className={s.link} activeClassName={s.active}>
         Movies
       </NavLink>
     </header>
