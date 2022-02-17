@@ -11,12 +11,11 @@ const MovieDetailsPage = () => {
   const history = useHistory();
   const location = useLocation();
   const { movieId } = useParams();
-
-  const [movieDetail, setMovieDetail] = useState([]);
+  const [movieDetail, setMovieDetail] = useState({});
 
   useEffect(() => {
-    movieDetail && API.getMovieDetails(movieId).then(setMovieDetail);
-  }, []);
+    API.getMovieDetails(movieId).then(setMovieDetail);
+  }, [movieId]);
 
   const handleGoBack = () => {
     history.push(location.state.from);
@@ -56,7 +55,6 @@ const MovieDetailsPage = () => {
                 pathname: `/movies/${movieId}/cast`,
                 state: {
                   from: location.state?.from || '/',
-                  movies: location.state?.movies,
                 },
               }}
             >
@@ -69,7 +67,6 @@ const MovieDetailsPage = () => {
                 pathname: `/movies/${movieId}/reviews`,
                 state: {
                   from: location.state?.from || '/',
-                  movies: location.state?.movies,
                 },
               }}
             >
